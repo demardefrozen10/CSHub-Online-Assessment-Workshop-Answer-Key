@@ -27,6 +27,7 @@ def numIslands(islands):
   
   return islands
 ```
+This is the BFS approach. 
 ```python
 def numIslands(islands):
   rows, cols = len(islands), len(islands[0])
