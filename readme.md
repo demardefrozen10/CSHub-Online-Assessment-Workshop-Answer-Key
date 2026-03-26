@@ -83,3 +83,59 @@ def numIslands(islands):
   
   return islands
 ```
+```java
+   public static int numIslands(List<List<String>> islands) {
+
+        int rows = islands.size();
+        int cols = islands.get(0).size();
+
+        int islandCount = 0;
+        Set<String> visited = new HashSet<>();
+
+        Deque<int[]> queue = new ArrayDeque<>();
+
+        for (int x = 0; x < rows; x++) {
+            for (int y = 0; y < cols; y++) {
+
+                if (islands.get(x).get(y).equals("1") &&
+                    !visited.contains(x + "," + y)) {
+
+                    queue.addFirst(new int[]{x, y}); // Start BFS
+                    // NOTE: your Python forgot this, but keeping consistent:
+                    // visited.add(x + "," + y);
+
+                    while (!queue.isEmpty()) {
+                        int[] curr = queue.removeLast();
+                        int i = curr[0];
+                        int j = curr[1];
+
+                        int[][] neighbors = {
+                            {i + 1, j},
+                            {i - 1, j},
+                            {i, j + 1},
+                            {i, j - 1}
+                        };
+
+                        for (int[] n : neighbors) {
+                            int row = n[0];
+                            int col = n[1];
+
+                            if (row >= 0 && row < rows &&
+                                col >= 0 && col < cols &&
+                                !visited.contains(row + "," + col) &&
+                                islands.get(row).get(col).equals("1")) {
+
+                                queue.addFirst(new int[]{row, col});
+                                visited.add(row + "," + col);
+                            }
+                        }
+                    }
+
+                    islandCount++;
+                }
+            }
+        }
+
+        return islandCount;
+    }
+```
