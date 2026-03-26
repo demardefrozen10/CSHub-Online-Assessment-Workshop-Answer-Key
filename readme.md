@@ -101,8 +101,7 @@ def numIslands(islands):
                     !visited.contains(x + "," + y)) {
 
                     queue.addFirst(new int[]{x, y}); // Start BFS
-                    // NOTE: your Python forgot this, but keeping consistent:
-                    // visited.add(x + "," + y);
+                    visited.add(x + "," + y);
 
                     while (!queue.isEmpty()) {
                         int[] curr = queue.removeLast();
