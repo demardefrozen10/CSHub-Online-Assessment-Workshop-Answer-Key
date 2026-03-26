@@ -27,6 +27,38 @@ def numIslands(islands):
   
   return islands
 ```
+```java
+    public static int numIslands(List<List<String>> islands) {
+        int m = grid.size();
+        int n = grid.get(0).size();
+        int c = 0;
+        for(int i = 0; i < m; i++){
+            for(int j = 0; j < n; j++){
+                if(grid[i][j] == '1'){
+                    dfs(grid, i, j);
+                    c++;
+                }
+            }
+        }
+        return c;
+    }
+    
+
+    public void dfs(List<List<String>> islands, int i, int j) {
+        int m = islands.size();
+        int n = islands.get(0).size();
+        if(i < 0 || j < 0 || i >= m || j >= n || islands.get(i).get(j) == '0'){
+            return;
+        }
+        islands.get(i).set(j, '0'); // mark it as visited
+        dfs(islands, i+1, j);
+        dfs(islands, i-1, j);
+        dfs(islands, i, j+1);
+        dfs(islands, i, j-1);
+    }
+```
+
+
 This is the BFS approach. 
 ```python
 def numIslands(islands):
@@ -50,4 +82,4 @@ def numIslands(islands):
               islands += 1
   
   return islands
-
+```
