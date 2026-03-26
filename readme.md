@@ -2,7 +2,6 @@
 
 The idea is that each row repersents the wealth of a given customer. So we want to iterate through each row, sum their values, and then once we have the wealth of the customer (the sum of the entire row), we compared it to our initial variable answer, and if it is greater than answer, then we know that this is the wealthiest customer we've seen so far. The best and only solution is O(N^2), since we have to check the balance of each account, and to do that, we have to sum the entire row for each account.
 
-### Question 2 First Unique Character in a String
 
 ```python
 def maximumWealth(accounts):
@@ -14,6 +13,9 @@ def maximumWealth(accounts):
         wealthiest = max(balance, wealthiest)
     
     return wealthiest
+```
+
+### Question 2 First Unique Character in a String
 
 There is a optimal and brute force approach. The optimal approach (for time) is O(N) time and O(N) space, but brute force is O(N^2) time but O(1) space. We want to optimize for time rather than space.
     
